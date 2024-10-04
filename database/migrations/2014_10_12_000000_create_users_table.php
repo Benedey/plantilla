@@ -26,6 +26,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('usertype_id');
+            $table->string('celular', 15);
+            $table->string('direccion_vivienda', 50);
+            $table->string('ciudad', 20);
+            $table->integer('codigo_postal');
+            $table->bigInteger('numero_idemex')->length(9);
             $table->foreign('usertype_id')->references('id')->on('usertypes')->onUpdate('cascade');
             $table->rememberToken();
             $table->timestamps();

@@ -14,6 +14,13 @@
                 </a>
             </li>
             <li class="sidebar-item">
+    <a class="sidebar-link" href="{{ route('eventos.index') }}">
+        <i class="fa fa-calendar-alt"></i>
+        <span class="align-middle">Eventos</span>
+    </a>
+</li>
+
+            <li class="sidebar-item">
                 <a data-bs-target="#analytics" data-bs-toggle="collapse" class="sidebar-link collapsed" aria-expanded="false">
                     <i class="fa-solid fa-chart-simple"></i>
                     <span class="align-middle">Analytics</span>
