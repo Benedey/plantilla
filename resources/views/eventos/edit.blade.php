@@ -1,4 +1,7 @@
-@extends('layouts.app') <!-- Asegúrate de usar tu layout correcto -->
+@extends('layouts.plantillabase')
+
+@section('title','Home')
+@section('h-title','Eventos')
 
 @section('content')
     <div class="container">

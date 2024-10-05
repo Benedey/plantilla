@@ -49,7 +49,6 @@ class EventoController extends Controller
     {
         return view('eventos.edit', compact('evento'));
     }
-
     public function update(Request $request, Evento $evento)
     {
         $request->validate([
@@ -58,14 +57,15 @@ class EventoController extends Controller
             'año' => 'required|integer',
             'hora' => 'required|string|max:5',
             'lugar' => 'required|string|max:50',
-            'id_usuario' => 'required|exists:users,id',
             'servicio' => 'required|string|max:120',
             'precio_paquete' => 'required|integer',
             'apartado' => 'required|integer',
             'firma' => 'required|string|max:100',
         ]);
-
-        $evento->update($request->all());
+    
+        // Actualizar el evento sin modificar el id_usuario
+        $evento->update($request->except('id_usuario'));
+        
         return redirect()->route('eventos.index')->with('success', 'Evento actualizado exitosamente');
     }
 
