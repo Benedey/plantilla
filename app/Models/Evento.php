@@ -26,8 +26,9 @@ class Evento extends Model
         'firma',
     ];
 
-    public function usuario()
+    public function user()
     {
         return $this->belongsTo(User::class, 'id_usuario');
     }
+    
 }

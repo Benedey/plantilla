@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use Illuminate\Http\Request;
+use PDF; 
 
 class EventoController extends Controller
 {
     public function index()
     {
-        $eventos = Evento::all();
+        // Obtener solo los eventos del usuario autenticado
+        $eventos = Evento::where('id_usuario', auth()->id())->get();
+        
         return view('eventos.index', compact('eventos'));
     }
+    
 
     public function create()
     {
@@ -74,4 +78,17 @@ class EventoController extends Controller
         $evento->delete();
         return redirect()->route('eventos.index')->with('success', 'Evento eliminado exitosamente');
     }
+
+    public function generarPDF($evento_id)
+    {
+        // Obtener el evento junto con la información del usuario
+        $evento = Evento::with('user')->findOrFail($evento_id);
+    
+        // Cargar la vista y generar el PDF
+        $pdf = PDF::loadView('eventos.contrato', compact('evento'));
+    
+        // Retornar el PDF como descarga
+        return $pdf->download('contrato_evento_'.$evento->id.'.pdf');
+    }
+    
 }

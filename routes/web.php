@@ -9,3 +9,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 
 Route::resource('eventos', EventoController::class);
+Route::get('contratos/{evento}/generar', [EventoController::class, 'generarPDF'])->name('contratos.generar');
+
+

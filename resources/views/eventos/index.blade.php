@@ -9,6 +9,7 @@
 <div class="container mt-5">
     <h1 class="mb-4">Lista de Eventos</h1>
     <a href="{{ route('eventos.create') }}" class="btn btn-primary mb-3">Crear Evento</a>
+    
 
     @if (session('success'))
         <div class="alert alert-success">
@@ -44,6 +45,8 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                <a href="{{ route('contratos.generar', $evento->id) }}" class="btn btn-success btn-sm">Generar Contrato</a>
+                                </td>
                             </form>
                         </td>
                     </tr>
