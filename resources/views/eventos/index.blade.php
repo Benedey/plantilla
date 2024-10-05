@@ -1,3 +1,11 @@
+@extends('layouts.plantillabase')
+
+@section('title','Home')
+@section('h-title','Eventos')
+@section('card-title','Lista de Eventos')
+
+@section('content')
+
 <h1>Lista de Eventos</h1>
 <a href="{{ route('eventos.create') }}">Crear Evento</a>
 
@@ -38,3 +46,4 @@
         @endforeach
     </tbody>
 </table>
+@endsection

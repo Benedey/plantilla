@@ -1,3 +1,10 @@
+@extends('layouts.plantillabase')
+
+@section('title','Home')
+@section('h-title','Eventos')
+@section('card-title','Lista de Eventos')
+
+@section('content')
 <h1>Crear Evento</h1>
 
 @if ($errors->any())
@@ -32,3 +39,4 @@
     <input type="text" name="firma" value="{{ old('firma') }}">
     <button type="submit">Crear</button>
 </form>
+@endsection
